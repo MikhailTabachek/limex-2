@@ -10,7 +10,7 @@ const stocks = [
 
 const StocksList = () => {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
+    <div className="p-6 bg-white rounded-lg shadow-md" style={{ height: '400px' }}>
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-xl font-semibold">Stocks</h3>
         <a
