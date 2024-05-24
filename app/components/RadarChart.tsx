@@ -1,5 +1,5 @@
 import { Radar } from 'react-chartjs-2';
-import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend, ChartOptions } from 'chart.js';
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
@@ -33,7 +33,7 @@ const RadarChart = ({ events, highlightedEvent }: { events: { name: string, date
     ],
   };
 
-  const options = {
+  const options: ChartOptions<'radar'> = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -58,7 +58,7 @@ const RadarChart = ({ events, highlightedEvent }: { events: { name: string, date
     plugins: {
       legend: {
         display: true,
-        position: 'top',
+        position: 'top', // This should be a valid value
         labels: {
           color: '#4A5568', // Customize legend text color
           font: { size: 14 },
