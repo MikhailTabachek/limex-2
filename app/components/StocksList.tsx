@@ -6,6 +6,9 @@ const stocks = [
   { name: 'Amazon', symbol: 'AMZN', price: 342.50, change: 1.51 },
   { name: 'Tesla', symbol: 'TSLA', price: 892.30, change: -2.31 },
   { name: 'Google', symbol: 'GOOGL', price: 2802.75, change: 2.01 },
+  { name: 'Nvidia', symbol: 'NVDA', price: 600.50, change: 2.75 },
+  { name: 'Ford', symbol: 'F', price: 12.75, change: 0.50 },
+  { name: 'Coca Cola', symbol: 'KO', price: 55.20, change: 1.25 },
 ];
 
 const StocksList = () => {
@@ -23,40 +26,42 @@ const StocksList = () => {
           Go to your broker
         </a>
       </div>
-      <ul className="space-y-4">
-        {stocks.map((stock) => (
-          <li
-            key={stock.symbol}
-            className="flex justify-between items-center cursor-pointer hover:bg-gray-100 p-2 rounded transition-colors duration-200"
-            onClick={() => window.open(`https://ai.limex.me/profile/BATS:${stock.symbol}`, '_blank')}
-          >
-            <div className="flex items-center">
-              <div className="flex items-center justify-center w-8 h-8 bg-gray-200 rounded-full mr-3">
-                <span className="text-gray-700 font-semibold">
-                  {stock.name.charAt(0)}
-                </span>
+      <div className="overflow-y-scroll" style={{ maxHeight: '300px' }}>
+        <ul className="space-y-4">
+          {stocks.map((stock) => (
+            <li
+              key={stock.symbol}
+              className="flex justify-between items-center cursor-pointer hover:bg-gray-100 p-2 rounded transition-colors duration-200"
+              onClick={() => window.open(`https://ai.limex.me/profile/BATS:${stock.symbol}`, '_blank')}
+            >
+              <div className="flex items-center">
+                <div className="flex items-center justify-center w-8 h-8 bg-gray-200 rounded-full mr-3">
+                  <span className="text-gray-700 font-semibold">
+                    {stock.name.charAt(0)}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-sm font-medium">{stock.name}</p>
+                  <p className="text-xs text-gray-500">{stock.symbol}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-medium">{stock.name}</p>
-                <p className="text-xs text-gray-500">{stock.symbol}</p>
+              <div className="text-right">
+                <p className="text-sm font-semibold">
+                  ${stock.price.toFixed(2)}
+                </p>
+                <p
+                  className={`text-xs ${
+                    stock.change >= 0 ? 'text-green-500' : 'text-red-500'
+                  }`}
+                >
+                  {stock.change >= 0 ? '+' : ''}
+                  {stock.change.toFixed(2)}%
+                </p>
               </div>
-            </div>
-            <div className="text-right">
-              <p className="text-sm font-semibold">
-                ${stock.price.toFixed(2)}
-              </p>
-              <p
-                className={`text-xs ${
-                  stock.change >= 0 ? 'text-green-500' : 'text-red-500'
-                }`}
-              >
-                {stock.change >= 0 ? '+' : ''}
-                {stock.change.toFixed(2)}%
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

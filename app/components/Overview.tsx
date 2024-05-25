@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import ChartComponent from './Chart';
+import Chart from './Chart';
 import StocksList from './StocksList';
 import RadarChart from './RadarChart';
 import StockMarketEvents from './StockMarketEvents';
+import RiskGauge from './RiskGauge';
 
 const events = [
   { name: 'AAPL', date: new Date('2024-06-01') },
@@ -12,8 +13,10 @@ const events = [
   { name: 'AMZN', date: new Date('2024-06-20') },
   { name: 'NFLX', date: new Date('2024-06-25') },
   { name: 'NVDA', date: new Date('2024-07-01') },
-  { name: 'AAPL', date: new Date('2024-07-05') },
-  { name: 'AMZN', date: new Date('2024-07-10') },
+  { name: 'F', date: new Date('2024-07-05') },
+  { name: 'KO', date: new Date('2024-07-10') },
+  { name: 'AAPL', date: new Date('2024-07-15') },
+  { name: 'AMZN', date: new Date('2024-07-20') },
 ];
 
 const Overview = () => {
@@ -36,15 +39,22 @@ const Overview = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <div className="lg:col-span-2">
-          <ChartComponent />
+          <Chart />
         </div>
         <div>
           <StocksList />
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <RadarChart events={events} highlightedEvent={highlightedEvent} />
-        <StockMarketEvents setHighlightedEvent={setHighlightedEvent} />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-1 flex justify-center items-center">
+          <RiskGauge />
+        </div>
+        <div className="lg:col-span-1">
+          <RadarChart events={events} highlightedEvent={highlightedEvent} />
+        </div>
+        <div className="lg:col-span-1">
+          <StockMarketEvents setHighlightedEvent={setHighlightedEvent} />
+        </div>
       </div>
     </div>
   );
