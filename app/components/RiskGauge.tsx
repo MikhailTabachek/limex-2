@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactSpeedometer from 'react-d3-speedometer';
+import { Transition } from 'react-d3-speedometer'
 import Modal from 'react-modal';
 
 const RiskGauge = () => {
@@ -27,7 +28,7 @@ const RiskGauge = () => {
           startColor="#00FF00"
           endColor="#FF0000"
           needleTransitionDuration={4000}
-          needleTransition="easeElastic"
+          needleTransition={Transition.easeElastic}
           ringWidth={50}
           width={300}
           height={200}
@@ -78,7 +79,7 @@ const RiskGauge = () => {
           bottom: 50px;
           color: #fff;
           font-size: 1.5rem;
-          text-shadow: 0 0 5px #fff, 0 0 10px #fff
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff;
         }
         .label {
           position: absolute;
