@@ -1,4 +1,3 @@
-import React from 'react';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
 
@@ -59,7 +58,7 @@ const RadarChart = ({ events, highlightedEvent }: { events: { name: string, date
     plugins: {
       legend: {
         display: true,
-        position: 'top',
+        position: 'top' as const, // Use 'top' as const to match the type
         labels: {
           color: '#4A5568', // Customize legend text color
           font: { size: 14 },
