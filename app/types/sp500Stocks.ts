@@ -1,4 +1,9 @@
 // sp500Stocks.ts
+export type Stock = {
+  name: string;
+  symbol: string;
+  risk: number;
+};
 export const sp500Stocks = [
   { name: "3M", symbol: "MMM", risk: 30 },
   { name: "A. O. Smith", symbol: "AOS", risk: 25 },

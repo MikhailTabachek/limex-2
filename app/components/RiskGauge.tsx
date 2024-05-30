@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import ReactSpeedometer, { Transition } from 'react-d3-speedometer';
 import Modal from 'react-modal';
 
-const RiskGauge = ({ riskLevel, title }) => {
+interface RiskGaugeProps {
+  riskLevel: number;
+  title: string;
+}
+
+const RiskGauge: React.FC<RiskGaugeProps> = ({ riskLevel, title }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
