@@ -3,7 +3,8 @@ import Chart from './Chart';
 import StocksList from './StocksList';
 import RadarChart from './RadarChart';
 import StockMarketEvents from './StockMarketEvents';
-import RiskGauge from './RiskGauge';
+import RiskSimulator from './RiskSimulator';
+import Trends from './Trends';
 
 const events = [
   { name: 'AAPL', date: new Date('2024-06-01') },
@@ -46,8 +47,8 @@ const Overview = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-1 flex justify-center items-center">
-          <RiskGauge />
+        <div className="lg:col-span-1">
+          <Trends />
         </div>
         <div className="lg:col-span-1">
           <RadarChart events={events} highlightedEvent={highlightedEvent} />
@@ -55,6 +56,9 @@ const Overview = () => {
         <div className="lg:col-span-1">
           <StockMarketEvents setHighlightedEvent={setHighlightedEvent} />
         </div>
+      </div>
+      <div className="mt-6">
+        <RiskSimulator />
       </div>
     </div>
   );
