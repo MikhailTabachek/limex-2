@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RangeSlider from './RangeSlider';
+import Tooltip from '@mui/material/Tooltip';
+import { FaInfoCircle } from 'react-icons/fa';
 import './SliderStyles.css';
 
 const RelativePerformance: React.FC = () => {
@@ -17,9 +19,22 @@ const RelativePerformance: React.FC = () => {
     setSetDate(new Date().toLocaleDateString());
   };
 
+  const tooltipText = (
+    <span className="custom-tooltip">
+      Relative Performance indicates how well your portfolio is performing in comparison to a benchmark. This slider helps you set acceptable performance levels for your investments. The blue range represents your chosen performance range. The grey needle shows your current performance, and it turns red if it falls outside the acceptable range. Regularly adjusting this range helps you keep track of your portfolio's performance. Remember, maintaining a balanced portfolio is key to long-term success. <a href="https://limex.com/tp/info/learning_center/" target="_blank" rel="noopener noreferrer">Learn more</a>.
+    </span>
+  );
+
   return (
     <div className="relative-performance p-5 bg-gray-100 rounded-lg shadow-md text-center">
-      <h3 className="mb-2">Relative Performance</h3>
+      <div className="slider-label mb-2">
+        <h3 className="inline-block">Relative Performance</h3>
+        <Tooltip title={tooltipText} placement="right">
+          <span className="ml-2 inline-block">
+            <FaInfoCircle />
+          </span>
+        </Tooltip>
+      </div>
       <RangeSlider
         min={-100}
         max={100}
