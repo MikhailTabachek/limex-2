@@ -1,0 +1,137 @@
+/* SliderStyles.css */
+.range_slider {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+  
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: 90%;
+  
+}
+
+.slider__track,
+.slider__range,
+.slider__left-value,
+.slider__right-value {
+  position: absolute;
+}
+
+.slider__track,
+.slider__range {
+  border-radius: 10px;
+  height: 10px;
+}
+
+.slider__track {
+  background-color: #ffffff;
+  height: 15px;
+  width: 100%;
+}
+
+.slider__range {
+  height: 15px;
+  background-color: #3b6ef7 !important;
+  z-index: 5;
+}
+
+.slider__left-value,
+.slider__right-value {
+  color: #1087f0;
+  font-family: Arial;
+  font-size: 12px;
+  top: 10px;
+}
+
+.slider__left-value {
+  left: 0;
+}
+
+.slider__right-value {
+  right: 0;
+}
+
+.thumb,
+.thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thumb {
+  pointer-events: none;
+  position: absolute;
+  height: 0px;
+  width: 100%;
+  outline: none;
+}
+
+.thumb--left {
+  z-index: 5;
+}
+
+.thumb--right {
+  z-index: 5;
+}
+
+.thumb::-webkit-slider-thumb {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 2px #ced4da;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  pointer-events: all;
+  position: relative;
+  top: -5px;
+  }
+  
+  .thumb::-moz-range-thumb {
+    background-color: rgb(231, 97, 19);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 2px #ced4da;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    pointer-events: all;
+    position: relative;
+    top: -5px;
+    z-index: 999;
+}
+
+.needle {
+  position: absolute;
+  top: -20px;
+  background: black;
+  height: 30px;
+  width: 2px;
+  z-index: 5;
+}
+
+.grey-needle {
+  position: absolute;
+  top: 5px;
+  background: rgb(63, 47, 155);
+  height: 20px;
+  width: 2px;
+  z-index: 5;
+}
+
+.step-values {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 10px;
+}

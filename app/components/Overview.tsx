@@ -5,6 +5,9 @@ import RadarChart from './RadarChart';
 import StockMarketEvents from './StockMarketEvents';
 import RiskSimulator from './RiskSimulator';
 import Trends from './Trends';
+import RelativePerformance from './RelativePerformance';
+import RiskLevel from './RiskLevel';
+import TemperatureLevel from './TemperatureLevel';
 
 const events = [
   { name: 'AAPL', date: new Date('2024-06-01') },
@@ -20,8 +23,8 @@ const events = [
   { name: 'AMZN', date: new Date('2024-07-20') },
 ];
 
-const Overview = () => {
-  const [highlightedEvent, setHighlightedEvent] = useState('');
+const Overview: React.FC = () => {
+  const [highlightedEvent, setHighlightedEvent] = useState<string>('');
 
   return (
     <div className="overview mb-6 p-6 bg-white rounded-lg shadow-md">
@@ -45,6 +48,11 @@ const Overview = () => {
         <div>
           <StocksList />
         </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <RelativePerformance />
+        <RiskLevel />
+        <TemperatureLevel />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1">
