@@ -44,11 +44,13 @@ const TemperatureLevel: React.FC = () => {
         setRange={setRange}
       />
       <div className="scale flex justify-between mt-2">
-        <span>0°</span>
-        <span>50°</span>
-        <span>100°</span>
+        <span>Low</span>
+        {/* <span>Medium</span> */}
+        <span>High</span>
       </div>
       <div className={`indicator ${indicator} w-4 h-4 rounded-full mx-auto my-2`}></div>
+      <br />
+      <div>Simulate </div>
       <input
         type="number"
         value={needle}

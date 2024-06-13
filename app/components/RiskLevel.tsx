@@ -45,10 +45,12 @@ const RiskLevel: React.FC = () => {
       />
       <div className="scale flex justify-between mt-2">
         <span>Low</span>
-        <span>Moderate</span>
+        {/* <span>Moderate</span> */}
         <span>High</span>
       </div>
       <div className={`indicator ${indicator} w-4 h-4 rounded-full mx-auto my-2`}></div>
+      <br />
+      <div>Simulate </div>
       <input
         type="number"
         value={needle}

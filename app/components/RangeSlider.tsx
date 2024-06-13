@@ -75,10 +75,8 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ min, max, step = 1, needle, s
         />
         <div className="needle" style={{ left: '50%' }} />
         <div className="grey-needle" style={{ left: `${convertToPercent(needle)}%` }} />
-      </div>
-      <div className="step-values">
-        <span>{leftThumb}</span>
-        <span>{rightThumb}</span>
+        <div className="thumb-value" style={{ left: `${convertToPercent(leftThumb)}%` }}>{leftThumb}</div>
+        <div className="thumb-value" style={{ left: `${convertToPercent(rightThumb)}%` }}>{rightThumb}</div>
       </div>
     </div>
   );

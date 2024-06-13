@@ -45,10 +45,12 @@ const RelativePerformance: React.FC = () => {
       />
       <div className="scale flex justify-between mt-2">
         <span>-100%</span>
-        <span>0%</span>
+        {/* <span>0%</span> */}
         <span>+100%</span>
       </div>
       <div className={`indicator ${indicator} w-4 h-4 rounded-full mx-auto my-2`}></div>
+      <br />
+      <div>Simulate </div>
       <input
         type="number"
         value={needle}
