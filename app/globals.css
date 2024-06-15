@@ -291,3 +291,16 @@ button:hover {
 .custom-tooltip a:hover {
   color: darkblue;
 }
+
+.trends {
+  position: relative;
+}
+
+.trends button {
+  margin-left: 5px;
+}
+
+.trends .tippy-box {
+  white-space: pre-wrap;
+}
+

@@ -50,7 +50,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <Link href="/creator-tools" legacyBehavior>
                   <a className="flex items-center hover:text-gray-600">
                     <FaGlobe className="mr-2" />
-                    Creator's Tools
+                    Creator Tools
                   </a>
                 </Link>
               </li>
