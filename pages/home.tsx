@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <Layout>
       <Overview />
-      <Stocks />
-      <Watchlist />
-      <Subscriptions />
+      {/* <Stocks /> */}
+      {/* <Watchlist /> */}
+      {/* <Subscriptions /> */}
     </Layout>
   );
 };

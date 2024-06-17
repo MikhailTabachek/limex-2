@@ -59,17 +59,17 @@ const Overview: React.FC = () => {
           <Trends />
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1">
           <RadarChart events={events} highlightedEvent={highlightedEvent} />
         </div>
         <div className="lg:col-span-1">
           <StockMarketEvents setHighlightedEvent={setHighlightedEvent} />
         </div>
-      </div>
-      <div className="mt-6">
+      </div> */}
+      {/* <div className="mt-6">
         <RiskSimulator />
-      </div>
+      </div> */}
     </div>
   );
 };

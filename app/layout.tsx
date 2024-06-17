@@ -18,42 +18,43 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <Link href="/home" legacyBehavior>
                   <a className="flex items-center hover:text-gray-600">
                     <FaHome className="mr-2" />
-                    Overview
+                    Home
                   </a>
                 </Link>
               </li>
               <li className="mb-4 flex items-center p-2 rounded hover:bg-gray-200">
-                <Link href="/favorites" legacyBehavior>
+                <Link href="/explore" legacyBehavior>
                   <a className="flex items-center hover:text-gray-600">
-                    <FaHeart className="mr-2" />
-                    Favorites
+                    {/* <FaHeart className="mr-2" /> */}
+                    <FaBoxOpen className="mr-2" />
+                    Explore
                   </a>
                 </Link>
               </li>
-              <li className="mb-4 flex items-center p-2 rounded hover:bg-gray-200">
+              {/* <li className="mb-4 flex items-center p-2 rounded hover:bg-gray-200">
                 <Link href="/subscriptions" legacyBehavior>
                   <a className="flex items-center hover:text-gray-600">
                     <FaBoxOpen className="mr-2" />
                     Subscriptions
                   </a>
                 </Link>
-              </li>
-              <li className="mb-4 flex items-center p-2 rounded hover:bg-gray-200">
+              </li> */}
+              {/* <li className="mb-4 flex items-center p-2 rounded hover:bg-gray-200">
                 <Link href="/settings" legacyBehavior>
                   <a className="flex items-center hover:text-gray-600">
                     <FaCog className="mr-2" />
                     Settings
                   </a>
                 </Link>
-              </li>
-              <li className="mb-4 flex items-center p-2 rounded hover:bg-gray-200">
+              </li> */}
+              {/* <li className="mb-4 flex items-center p-2 rounded hover:bg-gray-200">
                 <Link href="/creator-tools" legacyBehavior>
                   <a className="flex items-center hover:text-gray-600">
                     <FaGlobe className="mr-2" />
                     Creator Tools
                   </a>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </aside>

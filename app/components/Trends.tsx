@@ -160,7 +160,7 @@ const Trends = () => {
   return (
     <div className="trends p-6 bg-white rounded-lg shadow-md">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-xl font-semibold">Trends</h3>
+        <h3 className="text-xl font-semibold">Major Drivers</h3>
         <div>
           <button onClick={() => setTimeframe('week')} className={`px-3 py-1 text-white ${timeframe === 'week' ? 'bg-black' : 'bg-gray-600'}`}>1 Week</button>
           <button onClick={() => setTimeframe('month')} className={`px-3 py-1 text-white ${timeframe === 'month' ? 'bg-black' : 'bg-gray-600'}`}>1 Month</button>
