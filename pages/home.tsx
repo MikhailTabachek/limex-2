@@ -13,9 +13,6 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <Overview />
-      {/* <Stocks /> */}
-      {/* <Watchlist /> */}
-      {/* <Subscriptions /> */}
     </Layout>
   );
 };
