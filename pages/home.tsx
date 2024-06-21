@@ -1,10 +1,15 @@
+import React, { useEffect } from 'react';
 import Layout from '../app/layout';
 import Overview from '../app/components/Overview';
-import Stocks from '../app/components/Stocks';
-import Watchlist from '../app/components/Watchlist';
-import Subscriptions from '../app/components/Subscriptions';
+import { usePageContext } from '../app/pageContext';
 
-const Home = () => {
+const Home: React.FC = () => {
+  const { setCurrentPage } = usePageContext();
+
+  useEffect(() => {
+    setCurrentPage('home');
+  }, [setCurrentPage]);
+
   return (
     <Layout>
       <Overview />
