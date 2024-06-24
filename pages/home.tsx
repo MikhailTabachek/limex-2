@@ -1,3 +1,4 @@
+// pages/index.tsx (Home component)
 import React, { useEffect } from 'react';
 import Layout from '../app/layout';
 import Overview from '../app/components/Overview';

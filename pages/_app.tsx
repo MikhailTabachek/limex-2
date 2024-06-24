@@ -1,3 +1,4 @@
+// pages/_app.tsx
 import type { AppProps } from 'next/app';
 import '../app/globals.css';
 import { PageProvider } from '../app/pageContext';

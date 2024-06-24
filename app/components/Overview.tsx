@@ -8,6 +8,7 @@ import Trends from './Trends';
 import RelativePerformance from './RelativePerformance';
 import RiskLevel from './RiskLevel';
 import TemperatureLevel from './TemperatureLevel';
+import { usePageContext } from '../pageContext';
 
 const events = [
   { name: 'AAPL', date: new Date('2024-06-01') },
@@ -25,6 +26,7 @@ const events = [
 
 const Overview: React.FC = () => {
   const [highlightedEvent, setHighlightedEvent] = useState<string>('');
+  const { currentPage } = usePageContext(); // Example of using usePageContext
 
   return (
     <div className="overview mb-6 p-6 bg-white rounded-lg shadow-md">
@@ -59,17 +61,6 @@ const Overview: React.FC = () => {
           <Trends />
         </div>
       </div>
-      {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-1">
-          <RadarChart events={events} highlightedEvent={highlightedEvent} />
-        </div>
-        <div className="lg:col-span-1">
-          <StockMarketEvents setHighlightedEvent={setHighlightedEvent} />
-        </div>
-      </div> */}
-      {/* <div className="mt-6">
-        <RiskSimulator />
-      </div> */}
     </div>
   );
 };
