@@ -1,3 +1,5 @@
+"use client";
+
 import { Inter } from "next/font/google";
 import "../app/globals.css";
 import Link from 'next/link';
