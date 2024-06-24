@@ -36,23 +36,31 @@ const settings = [
   },
   {
     title: 'Risk',
-    items: [] // Add your items here
+    items: ['Max. Drawdown', 'Sharpe', 'Sterling']
   },
   {
     title: 'Momentum',
-    items: [] // Add your items here
+    items: ['EMA-50', 'RSI', 'Stochastic']
   },
   {
     title: 'Social',
-    items: [] // Add your items here
+    items: ['Authors', 'Posts']
   }
 ];
 
-const SettingsMenu: React.FC = () => {
+const SettingsMenu: React.FC<{ onApply: (filters: any) => void }> = ({ onApply }) => {
   const [expandedSetting, setExpandedSetting] = useState<string | null>(null);
   const [selectedItems, setSelectedItems] = useState<{ [key: string]: string[] }>({});
   const [marketCapRange, setMarketCapRange] = useState<[number, number]>([0, 7000]);
   const [dividendYieldRange, setDividendYieldRange] = useState<[number, number]>([0, 50]);
+  const [maxDrawdownRange, setMaxDrawdownRange] = useState<[number, number]>([0, 100]);
+  const [sharpeRange, setSharpeRange] = useState<[number, number]>([0, 100]);
+  const [sterlingRange, setSterlingRange] = useState<[number, number]>([0, 100]);
+  const [ema50Range, setEma50Range] = useState<[number, number]>([0, 100]);
+  const [rsiRange, setRsiRange] = useState<[number, number]>([0, 100]);
+  const [stochasticRange, setStochasticRange] = useState<[number, number]>([0, 100]);
+  const [authorsFilters, setAuthorsFilters] = useState<string[]>([]);
+  const [postsFilters, setPostsFilters] = useState<string[]>([]);
 
   const toggleSetting = (title: string) => {
     setExpandedSetting(expandedSetting === title ? null : title);
@@ -81,6 +89,31 @@ const SettingsMenu: React.FC = () => {
     }
   };
 
+  const handleSubcategoryCheckboxChange = (subcategory: string, item: string, setFilters: React.Dispatch<React.SetStateAction<string[]>>, filters: string[]) => {
+    if (filters.includes(item)) {
+      setFilters(filters.filter(i => i !== item));
+    } else {
+      setFilters([...filters, item]);
+    }
+  };
+
+  const handleApply = () => {
+    const filters = {
+      marketCapRange,
+      dividendYieldRange,
+      maxDrawdownRange,
+      sharpeRange,
+      sterlingRange,
+      ema50Range,
+      rsiRange,
+      stochasticRange,
+      authorsFilters,
+      postsFilters,
+      selectedItems,
+    };
+    onApply(filters);
+  };
+
   return (
     <div>
       {settings.map((setting) => (
@@ -96,7 +129,7 @@ const SettingsMenu: React.FC = () => {
           </h2>
           {expandedSetting === setting.title && setting.items.length > 0 && (
             <ul className="ml-4">
-              {setting.title !== 'Fundamentals' && (
+              {setting.title !== 'Fundamentals' && setting.title !== 'Risk' && setting.title !== 'Momentum' && setting.title !== 'Social' && (
                 <>
                   <li className="mb-2">
                     <label className="flex items-center">
@@ -146,10 +179,154 @@ const SettingsMenu: React.FC = () => {
                   </div>
                 </>
               )}
+              {setting.title === 'Risk' && (
+                <>
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Max. Drawdown</label>
+                    <CompactRangeSlider
+                      min={0}
+                      max={100}
+                      range={maxDrawdownRange}
+                      setRange={setMaxDrawdownRange}
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Sharpe</label>
+                    <CompactRangeSlider
+                      min={0}
+                      max={100}
+                      range={sharpeRange}
+                      setRange={setSharpeRange}
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Sterling</label>
+                    <CompactRangeSlider
+                      min={0}
+                      max={100}
+                      range={sterlingRange}
+                      setRange={setSterlingRange}
+                    />
+                  </div>
+                </>
+              )}
+              {setting.title === 'Momentum' && (
+                <>
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">EMA-50</label>
+                    <CompactRangeSlider
+                      min={0}
+                      max={100}
+                      range={ema50Range}
+                      setRange={setEma50Range}
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">RSI</label>
+                    <CompactRangeSlider
+                      min={0}
+                      max={100}
+                      range={rsiRange}
+                      setRange={setRsiRange}
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Stochastic</label>
+                    <CompactRangeSlider
+                      min={0}
+                      max={100}
+                      range={stochasticRange}
+                      setRange={setStochasticRange}
+                    />
+                  </div>
+                </>
+              )}
+              {setting.title === 'Social' && (
+                <>
+                  <h3 className="text-lg font-semibold mb-2">Authors</h3>
+                  <ul className="ml-4">
+                    <li className="mb-2">
+                      <label className="flex items-center">
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          checked={authorsFilters.includes('Verified')}
+                          onChange={() => handleSubcategoryCheckboxChange('Authors', 'Verified', setAuthorsFilters, authorsFilters)}
+                        />
+                        Verified
+                      </label>
+                    </li>
+                    <li className="mb-2">
+                      <label className="flex items-center">
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          checked={authorsFilters.includes('Top Rated')}
+                          onChange={() => handleSubcategoryCheckboxChange('Authors', 'Top Rated', setAuthorsFilters, authorsFilters)}
+                        />
+                        Top Rated
+                      </label>
+                    </li>
+                    <li className="mb-2">
+                      <label className="flex items-center">
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          checked={authorsFilters.includes('Has Strategy')}
+                          onChange={() => handleSubcategoryCheckboxChange('Authors', 'Has Strategy', setAuthorsFilters, authorsFilters)}
+                        />
+                        Has Strategy
+                      </label>
+                    </li>
+                  </ul>
+                  <h3 className="text-lg font-semibold mb-2">Posts</h3>
+                  <ul className="ml-4">
+                    <li className="mb-2">
+                      <label className="flex items-center">
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          checked={postsFilters.includes('Most Viewed')}
+                          onChange={() => handleSubcategoryCheckboxChange('Posts', 'Most Viewed', setPostsFilters, postsFilters)}
+                        />
+                        Most Viewed
+                      </label>
+                    </li>
+                    <li className="mb-2">
+                      <label className="flex items-center">
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          checked={postsFilters.includes('Most Liked')}
+                          onChange={() => handleSubcategoryCheckboxChange('Posts', 'Most Liked', setPostsFilters, postsFilters)}
+                        />
+                        Most Liked
+                      </label>
+                    </li>
+                    <li className="mb-2">
+                      <label className="flex items-center">
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          checked={postsFilters.includes('Most Reposted')}
+                          onChange={() => handleSubcategoryCheckboxChange('Posts', 'Most Reposted', setPostsFilters, postsFilters)}
+                        />
+                        Most Reposted
+                      </label>
+                    </li>
+                  </ul>
+                </>
+              )}
             </ul>
           )}
         </div>
       ))}
+      <button
+        className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 mt-4"
+        onClick={handleApply}
+      >
+        Apply
+      </button>
     </div>
   );
 };
