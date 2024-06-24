@@ -1,3 +1,4 @@
+// components/Layout.tsx
 "use client";
 
 import { Inter } from "next/font/google";
@@ -5,7 +6,7 @@ import "../app/globals.css";
 import Link from 'next/link';
 import { FaHome, FaBoxOpen } from 'react-icons/fa';
 import { usePageContext } from '../app/pageContext';
-import SettingsMenu from '../app/components/SettingsMenu'; // Import SettingsMenu here
+import SettingsMenu from '../app/components/SettingsMenu';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,7 +35,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 </Link>
               </li>
             </ul>
-            {/* Conditionally render the SettingsMenu only for the Explore page */}
             {currentPage === 'explore' && (
               <SettingsMenu onApply={() => {}} />
             )}

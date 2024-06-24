@@ -1,3 +1,4 @@
+// components/Overview.tsx
 import React, { useState } from 'react';
 import Chart from './Chart';
 import StocksList from './StocksList';
@@ -26,7 +27,7 @@ const events = [
 
 const Overview: React.FC = () => {
   const [highlightedEvent, setHighlightedEvent] = useState<string>('');
-  const { currentPage } = usePageContext(); // Example of using usePageContext
+  const { currentPage } = usePageContext();
 
   return (
     <div className="overview mb-6 p-6 bg-white rounded-lg shadow-md">
