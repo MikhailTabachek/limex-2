@@ -1,7 +1,6 @@
-// pages/_app.tsx
 import type { AppProps } from 'next/app';
-import '../app/globals.css';
-import { PageProvider } from '../app/pageContext';
+import '../app/globals.css'; // Ensure the path to your global CSS file is correct
+import { PageProvider } from '../app/pageContext'; // Ensure the path to your pageContext file is correct
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

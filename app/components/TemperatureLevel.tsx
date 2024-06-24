@@ -28,7 +28,7 @@ const TemperatureLevel: React.FC = () => {
   return (
     <div className="relative-performance p-5 bg-gray-100 rounded-lg shadow-md text-center">
       <div className="slider-label mb-2">
-        <h3 className="inline-block">Temperature Level</h3>
+        <h3 className="inline-block">Heat Level</h3>
         <Tooltip title={tooltipText} placement="right">
           <span className="ml-2 inline-block">
             <FaInfoCircle />
