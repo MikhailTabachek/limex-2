@@ -41,9 +41,9 @@ const Explore: React.FC = () => {
   return (
     <Layout>
       <div className="flex">
-        <div className="w-1/4 p-6 bg-gray-50 text-gray-800 rounded-lg shadow-md">
+        <aside className="w-64 bg-gray-50 text-gray-800 p-6 rounded-lg shadow-md">
           <SettingsMenu onApply={handleApplyFilters} />
-        </div>
+        </aside>
         <div className="flex-1 p-6 bg-white rounded-lg shadow-md">
           <div className="mb-4">
             <div className="flex space-x-4 mb-4">

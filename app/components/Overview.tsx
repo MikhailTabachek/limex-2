@@ -9,7 +9,6 @@ import Trends from './Trends';
 import RelativePerformance from './RelativePerformance';
 import RiskLevel from './RiskLevel';
 import TemperatureLevel from './TemperatureLevel';
-import { usePageContext } from '../pageContext';
 
 const events = [
   { name: 'AAPL', date: new Date('2024-06-01') },
@@ -27,7 +26,6 @@ const events = [
 
 const Overview: React.FC = () => {
   const [highlightedEvent, setHighlightedEvent] = useState<string>('');
-  const { currentPage } = usePageContext();
 
   return (
     <div className="overview mb-6 p-6 bg-white rounded-lg shadow-md">

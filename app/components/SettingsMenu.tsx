@@ -1,4 +1,4 @@
-// Ensure no additional changes are needed in this file.
+// components/SettingsMenu.tsx
 import React, { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
 import CompactRangeSlider from './CompactRangeSlider';
