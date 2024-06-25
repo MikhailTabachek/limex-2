@@ -4,22 +4,14 @@ import StockScreener from '../app/components/StockScreener';
 import StocksList from '../app/components/StocksList';
 import DetailedStockView from '../app/components/DetailedStockView';
 import Feed from '../app/components/Feed';
+import SettingsMenu from '../app/components/SettingsMenu';
 import { Stock, Filters } from '../app/types/types';
 import { initialStocks } from '../app/components/stocksData';
 
 const Explore: React.FC = () => {
   const [activeTab, setActiveTab] = useState('screener');
   const [selectedStock, setSelectedStock] = useState<Stock | null>(null);
-
-  const handleStockClick = (stock: Stock) => {
-    setSelectedStock(stock);
-  };
-
-  const handleClose = () => {
-    setSelectedStock(null);
-  };
-
-  const defaultFilters: Filters = {
+  const [filters, setFilters] = useState<Filters>({
     marketCapRange: [0, 100000],
     dividendYieldRange: [0, 10],
     maxDrawdownRange: [0, 100],
@@ -31,11 +23,26 @@ const Explore: React.FC = () => {
     selectedSectors: [],
     selectedInvestmentTypes: [],
     selectedItems: {} // Added selectedItems to match the Filters type
+  });
+
+  const handleStockClick = (stock: Stock) => {
+    setSelectedStock(stock);
+  };
+
+  const handleClose = () => {
+    setSelectedStock(null);
+  };
+
+  const handleApplyFilters = (newFilters: Filters) => {
+    setFilters(newFilters);
   };
 
   return (
     <Layout>
       <div className="flex">
+        <div className="w-1/4 p-6 bg-gray-50 text-gray-800 rounded-lg shadow-md">
+          <SettingsMenu onApply={handleApplyFilters} />
+        </div>
         <div className="flex-1 p-6 bg-white rounded-lg shadow-md">
           <div className="mb-4">
             <div className="flex space-x-4 mb-4">
@@ -62,7 +69,7 @@ const Explore: React.FC = () => {
             <div className="border rounded-lg shadow-md p-4 bg-gray-50">
               {activeTab === 'screener' && (
                 <>
-                  <StockScreener filters={defaultFilters} onStockClick={handleStockClick} selectedStock={selectedStock} onClose={handleClose} />
+                  <StockScreener filters={filters} onStockClick={handleStockClick} selectedStock={selectedStock} onClose={handleClose} />
                   {selectedStock && <DetailedStockView stock={selectedStock} onClose={handleClose} />}
                 </>
               )}
@@ -72,7 +79,7 @@ const Explore: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="mt-8" >
+      <div className="mt-8">
         <Feed />
       </div>
     </Layout>
