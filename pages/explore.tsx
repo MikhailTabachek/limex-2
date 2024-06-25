@@ -1,3 +1,4 @@
+// pages/explore.tsx
 import React, { useState } from 'react';
 import Layout from '@/app/layout';
 import StockScreener from '../app/components/StockScreener';
@@ -22,7 +23,7 @@ const Explore: React.FC = () => {
     stochasticRange: [0, 100],
     selectedSectors: [],
     selectedInvestmentTypes: [],
-    selectedItems: {} // Added selectedItems to match the Filters type
+    selectedItems: {}
   });
 
   const handleStockClick = (stock: Stock) => {

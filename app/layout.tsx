@@ -2,16 +2,17 @@
 "use client";
 
 import { Inter } from "next/font/google";
-import "../app/globals.css";
 import Link from 'next/link';
 import { FaHome, FaBoxOpen } from 'react-icons/fa';
 import { usePageContext } from '../app/pageContext';
 import SettingsMenu from '../app/components/SettingsMenu';
+import "../app/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { currentPage } = usePageContext();
+
   return (
     <div className={inter.className}>
       <div className="flex h-screen">
@@ -36,7 +37,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               </li>
             </ul>
             {currentPage === 'explore' && (
-              <SettingsMenu onApply={() => {}} />
+              <div className="mt-4">
+                <SettingsMenu onApply={() => {}} />
+              </div>
             )}
           </nav>
         </aside>
